@@ -1,0 +1,9 @@
+# ECFP invert
+## what's this
+This is a preliminary version of the algorithmic ECFP inversion approach developed in our lab (https://github.com/lich-uct). ECFP is a type of circular fingerprint used to encode the presence of substructures in molecules. In this prototype implementation we use RDKit's MorganFingerprint as our ECFP. By a fragment per fragment build up of the molecule and checking it at every step, a good degree of reconstruction is possible. An alternative NN based method for inversion was developed earlier and can be found here: https://github.com/bayer-science-for-a-better-life/neuraldecipher Their paper also contains some good background on why it is interesting to show some ECFP can be inverted.
+## dependencies
+The only dependency should be a somewhat up-to-date rdkit. I used rdkit 2022.03.2 (boost 1_75) on python 3.9.2.
+## i want to try it
+Use the jupyter notebook test_invert.ipynb to see usage. In case you have some notes feel free to email me.
+## what are the limitations and plans
+So far, I have just tested this method on gdb-7-11, this is a preliminary version, which i offer as a proof-of-concept. One limitation of the currebt implementation is speed, i need to run some tests and check where there are inefficiencies like needless sanitizations etc. Currently the verbose output is a bit hard to interpret. Once we have it refined, benchmarked and figured out the final limitations we will publish it. The current approach will only invert actually existing ECFPs. We found some approaches to get around this (e.g. when using generated ECFP as a de novo generator) but this out of the scope of the current approach. 
