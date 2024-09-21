@@ -5,7 +5,18 @@ This is the algorithmic ECFP inversion approach developed in our lab (https://gi
 ECFP is a type of circular fingerprint used to encode the presence of substructures in molecules. In this prototype implementation we use RDKit's MorganFingerprint as our ECFP. By a fragment per fragment build up of the molecule and checking it at every step, a good degree of reconstruction is possible. An alternative NN based method for inversion was developed earlier and can be found here: https://github.com/bayer-science-for-a-better-life/neuraldecipher Their paper also contains some good background on why it is interesting to show some ECFP can be inverted.
 
 ## installation
-make a conda env or venv with rdkit=2022.09 and numpy=1.23.4. yes, it is important to have these exact versions (for now).
+### PIP environment setup
+requires PIP within python 3.11 or lower. Then just:
+```bash
+conda create -n [environment_name] python=3.11  # or any other way to get python env 
+git clone https://github.com/dehaenw/ECFPinvert
+cd ECFPinvert
+pip install .
+```
+### manual environment setup
+
+Alternatively, just make sure the conda env or venv has rdkit=2022.09 and numpy=1.23.4.
+Yes, it is important to have these exact versions (for now).
 
 ## i want to try it
 here is a minimally working code block to invert the ECFP4(2048) of strychnine, a rather complex molecule:
